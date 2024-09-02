@@ -1,0 +1,60 @@
+<!-- login.component.html -->
+
+
+<form [formGroup]="loginForm">
+    <div class="login-container">
+      <h2>Log In</h2>
+      <mat-form-field appearance="fill">
+  
+        <input matInput type="email" placeholder="Email" formControlName="email">
+        <mat-icon matSuffix style="color: black; padding-right: 10px;">person</mat-icon>
+        <mat-error *ngIf="loginForm.controls['email'].touched && loginForm.hasError('required', 'email')"
+          class="text-danger">*Email is required
+        </mat-error>
+      </mat-form-field>
+  
+  
+      <mat-form-field appearance="fill">
+        <!-- <mat-label>Password</mat-label> -->
+        <input matInput [type]="hide ? 'password' : 'text'" placeholder="Password" formControlName="password" />
+        <a matSuffix class="show-pwd-icon" style="color: black; padding-right: 10px;" href="#" onClick="return false;"
+          (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{
+            hide ? "visibility_off" : "visibility"
+            }}</mat-icon> </a>
+        <mat-error *ngIf="loginForm.controls['password'].touched && loginForm.hasError('required', 'password')"
+          class="text-danger">*Password is required</mat-error>
+      </mat-form-field>
+  
+      <!--  [disabled]="loginForm.invalid"  -->
+      <button mat-raised-button (click)="onLogin()" type="submit"
+        [ngClass]="{'default-grey': !loginForm.valid, 'dark-grey': loginForm.valid}">
+      Log In
+      </button>
+  
+      <div class="links">
+        <a routerLink="/signup">Don't have an account? Sign Up</a>
+        <a routerLink="/forgot-password">Forgot Password?</a>
+      </div>
+     
+      <div class="row mt-2">
+        <a   style="text-decoration: none;"></a>
+  
+        <div class="card shadow text-center">
+          <p>Or Sign in with</p>
+        <div class="social-login"  (click)="loginWithGoogle()"> 
+          <div class="social-icons">
+            <a  href="#"><img src="../../../assets/Google.png" alt="Google"></a>
+            <!-- <a href="#"><img src="../../../assets/Ig.png" alt="Instagram"></a>
+            <a href="#"><img src="../../../assets/fb_icon.png" alt="Facebook"></a>  -->
+          
+          </div>
+        </div>
+  </div>
+  
+  
+      </div>
+    </div>
+  
+  
+  </form>

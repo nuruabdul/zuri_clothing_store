@@ -1,0 +1,25 @@
+<div class="container mt-4" style="min-height: 100vh;">
+  <div class="row mb-4">
+    <div class="col-8">
+      <input type="text" class="form-control" placeholder="Search products..." [(ngModel)]="searchTerm" >
+    </div>
+    <div class="col-4">
+      <button class="btn btn-primary w-100" (click)="searchProducts()">Search</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 mt-4" *ngFor="let product of products">
+      <div class="card mb-4">
+        <img [src]="product.imageUrl" class="card-img-top" alt="{{ product.name }}">
+        <div class="card-body">
+          <h5 class="card-title" style="font-size: 1.4rem;">{{ product.name }}</h5>
+          <p class="card-text" style="font-size: 1.0rem;">{{ product.description }}</p>
+          <h6 style="font-size: 1.1rem;">{{ product.price | currency:'KES' }}</h6>
+          <button class="btn btn-success me-2">Buy</button>
+          <button class="btn btn-secondary" (click)="addToCart(product)">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

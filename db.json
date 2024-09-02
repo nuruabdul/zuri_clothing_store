@@ -1,0 +1,133 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Men's Shoes",
+      "price": 2500,
+      "description": "Durable and comfortable shoes for men.",
+      "imageUrl": "../../../assets/men's shoes.jpg"
+    
+    },
+    {
+      "id": 2,
+      "name": "Women's Dress",
+      "price": 2000,
+      "description": "Elegant evening dress for women.",
+      "imageUrl": "../../../assets/dress.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Kid's Jacket",
+      "price": 1200,
+      "description": "Warm and stylish jacket for kids.",
+      "imageUrl": "../../../assets/kid's jacket.jpeg"
+    },
+    {
+      "id": 4,
+      "name": "Men's Trousers",
+      "price": 1800,
+      "description": "Classic fit trousers for men.",
+      "imageUrl": "path-to-mens-trousers-image"
+    },
+    {
+      "id": 5,
+      "name": "Women's Skirt",
+      "price": 1300,
+      "description": "Floral print skirt for women.",
+      "imageUrl": "path-to-womens-skirt-image"
+    },
+    {
+      "id": 6,
+      "name": "Kid's T-Shirt",
+      "price": 800,
+      "description": "Soft cotton t-shirt for kids.",
+      "imageUrl": "path-to-kids-tshirt-image"
+    },
+    {
+      "id": 7,
+      "name": "Men's Shirt",
+      "price": 1500,
+      "description": "Comfortable cotton shirt for men.",
+      "imageUrl": "path-to-mens-shirt-image"
+    },
+    {
+      "id": 8,
+      "name": "Women's Heels",
+      "price": 3000,
+      "description": "Stylish high heels for women.",
+      "imageUrl": "path-to-womens-heels-image"
+    },
+    {
+      "id": 9,
+      "name": "Kid's Sneakers",
+      "price": 1500,
+      "description": "Colorful and comfy sneakers for kids.",
+      "imageUrl": "path-to-kids-sneakers-image"
+    },
+    {
+      "id": 10,
+      "name": "Men's Jacket",
+      "price": 2200,
+      "description": "Waterproof and warm jacket for men.",
+      "imageUrl": "path-to-mens-jacket-image"
+    },
+    {
+      "id": 11,
+      "name": "Women's Top",
+      "price": 1200,
+      "description": "Casual top for women.",
+      "imageUrl": "path-to-womens-top-image"
+    },
+    {
+      "id": 12,
+      "name": "Kid's Trousers",
+      "price": 1000,
+      "description": "Comfortable trousers for kids.",
+      "imageUrl": "path-to-kids-trousers-image"
+    },
+    {
+      "id": 13,
+      "name": "Men's Belt",
+      "price": 700,
+      "description": "Leather belt for men.",
+      "imageUrl": "path-to-mens-belt-image"
+    },
+    {
+      "id": 14,
+      "name": "Women's Bag",
+      "price": 2500,
+      "description": "Elegant handbag for women.",
+      "imageUrl": "path-to-womens-bag-image"
+    },
+    {
+      "id": 15,
+      "name": "Kid's Hat",
+      "price": 500,
+      "description": "Sun hat for kids.",
+      "imageUrl": "path-to-kids-hat-image"
+    }
+  ],
+  "cart": [
+    {
+      "id": 1
+    },
+    {
+      "id": 5
+    },
+    {
+      "id": 6
+    },
+    {
+      "id": 2
+    },
+    {
+      "id": 2
+    },
+    {
+      "id": 3
+    },
+    {
+      "id": 3
+    }
+  ]
+}

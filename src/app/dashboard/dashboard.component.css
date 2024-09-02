@@ -1,0 +1,30 @@
+.welcome-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center; /* Center text content */
+  }
+  
+  .marquee-text {
+    margin: 0 auto; /* Center marquee horizontally */
+    width: 100%; /* Full width */
+  }
+  
+  marquee h2 {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center; /* Ensure text is centered */
+  }
+  

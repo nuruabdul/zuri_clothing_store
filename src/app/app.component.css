@@ -1,0 +1,51 @@
+#sidebar {
+  min-width: 250px;
+  max-width: 250px;
+  min-height: 100vh;
+  padding-top: 20px;
+  transition: all 0.3s;
+}
+
+#sidebar.active {
+  margin-left: -250px;
+}
+
+#content {
+  width: 100%;
+}
+
+.sidebar-header {
+  padding: 10px;
+  background: #466b91;
+}
+
+.list-unstyled {
+  padding: 0;
+}
+
+.list-unstyled li a {
+  padding: 10px;
+  display: block;
+  color: #333;
+  text-decoration: none;
+}
+
+.list-unstyled li a:hover {
+  background: #3e84cf;
+  color: #fff;
+}
+
+#menu-toggle {
+  margin-right: 10px;
+}
+
+.cart-count {
+  background-color: rgb(45, 184, 45);
+  color: white;
+  border-radius: 50%; /* Ensure it's a circle */
+  padding: 1px 4px; /* Reduced padding for smaller size */
+  font-size: 10px; /* Reduced font size */
+  position: absolute;
+  top: 5px; /* Adjusted for smaller badge */
+  right: 5px; /* Adjusted for smaller badge */
+}

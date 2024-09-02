@@ -1,0 +1,106 @@
+/* login.component.css */
+
+.login-container {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .login-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 24px;
+    font-weight: 500;
+    color: #333333;
+  }
+  
+  .login-container mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .login-container mat-form-field.mat-form-field-appearance-outline {
+    background-color: #f9f9f9;
+    border-radius: 5px;
+  }
+  
+  .login-container mat-icon {
+    color: #007bff;
+  }
+  
+  .login-container mat-error {
+    font-size: 12px;
+    color: #ff5252;
+    margin-top: 5px;
+  }
+  
+  .login-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .login-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  .login-container button[disabled] {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  .login-container .links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+  }
+  
+  .login-container .links a {
+    color: #0b4c92;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .login-container .links a:hover {
+    color: #0056b3;
+  }
+  .card-body img {
+    margin: 0 10px; /* Adjust spacing between images */
+  }
+  
+  .social-login {
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .social-login p {
+    margin-top: 10px;
+    margin-bottom: 0px;
+    color: #0f0f0f;
+  }
+  .social-icons img {
+    width: 50px;  /* Set the desired width */
+    height: 40px; /* Set the desired height */
+    object-fit: contain; /* Ensures the aspect ratio is maintained */
+  }
+  .social-icons {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .social-icons a img {
+    width: 50px;
+  }
+  
