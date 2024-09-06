@@ -7,9 +7,13 @@
         <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let item of cartItems">
           <div>
             <img [src]="item.imageUrl" alt="{{ item.name }}" width="50">
-            {{ item.name }} - {{ item.price | currency:'KES' }}
+            {{ item.name }} - {{ item.price | currency:'KES' }} -  Quantity required:{{ item.pieces}}
           </div>
+          
+          <div class="d-flex">
+          <button class="btn btn-success me-2" (click)="buyProduct(item)" >Order Now!</button>
           <button class="btn btn-danger btn-sm" (click)="removeFromCart(item.id)">Remove</button>
+        </div>
         </li>
       </ul>
       <div class="mt-4">

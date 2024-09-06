@@ -3,15 +3,18 @@ import { Observable } from 'rxjs';
 import { finalize, switchMap } from 'rxjs/operators';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
-
-export interface Product {
-  id?: string;
-  name: string;
-  category: string;
-  price: number;
-  description: string;
-  imageUrl: string;
-}
+import { Product } from '../models/product';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+// export interface Product {
+//   id?: string;
+//   name: string;
+//   category: string;
+//   price: number;
+//   description: string;
+//   imageUrl: string;
+//   quantity:number,
+//   availableItems:number
+// }
 // This file defines the ProductService which interacts with Firebase Firestore,
 //  for product data and Firebase Storage for product images.
 @Injectable({
@@ -19,9 +22,10 @@ export interface Product {
 })
 export class ProductService {
   private productsCollection = this.firestore.collection<Product>('products');
-
+  private selectedProduct: Product | null = null;
   constructor(
     private firestore: AngularFirestore,
+    private afAuth: AngularFireAuth, 
     private storage: AngularFireStorage
   ) {}
 
@@ -47,16 +51,37 @@ export class ProductService {
   //     switchMap(() => fileRef.getDownloadURL())
   //   ).toPromise();
   }
-  
+    // Fetch orders for a specific user
+    getUserOrders(userId: string): Observable<any[]> {
+      return this.firestore.collection('orders', ref => ref.where('userId', '==', userId)).valueChanges();
+    }
+   // {
+//   "orderId": "unique-order-id",
+//   "userId": "user-id",
+//   "date": "timestamp",
+//   "total": 1000,
+//   "status": "completed"
+// }
+submitOrder(order: any) {
+  return this.firestore.collection('orders').add(order);
+}
   getProducts(): Observable<Product[]> {
     return this.productsCollection.valueChanges({ idField: 'id' });
   }
-
+ 
   updateProduct(id: string, product: Product): Promise<void> {
     return this.productsCollection.doc(id).update(product);
   }
 
   deleteProduct(id: string): Promise<void> {
     return this.productsCollection.doc(id).delete();
+  }
+
+  setSelectedProduct(product: Product): void {
+    this.selectedProduct = product;
+  }
+
+  getSelectedProduct(): Product | null {
+    return this.selectedProduct;
   }
 }

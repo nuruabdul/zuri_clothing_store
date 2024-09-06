@@ -1,0 +1,17 @@
+.container {
+    max-width: 900px;
+  }
+  
+  h2, h4 {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  button {
+    margin-top: 10px;
+  }
+  
+  .list-group-item {
+    margin-bottom: 15px;
+  }
+  

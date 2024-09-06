@@ -15,14 +15,21 @@
 
     <div class="mb-3">
       <label for="category" class="form-label">Category</label>
-      <input
-        type="text"
+      <select
         id="category"
+      
         class="form-control"
         [(ngModel)]="product.category"
         name="category"
+        
         required
-      />
+      >
+        <option value="" disabled selected>Select a category</option>
+        <option>Men's Clothing</option>
+        <option>Women's Clothing</option>
+        <option>Children's Clothing</option>
+        <option>Shoes & Accessories</option>
+      </select>
     </div>
 
     <div class="mb-3">
@@ -38,6 +45,19 @@
     </div>
 
     <div class="mb-3">
+      <label for="quantity" class="form-label">Available Quantity</label>
+      <input
+        type="number"
+        id="quantity"
+        class="form-control"
+        [(ngModel)]="product.quantity"
+        name="quantity"
+        min="0"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
       <label for="description" class="form-label">Description</label>
       <textarea
         id="description"
@@ -47,14 +67,13 @@
         required
       ></textarea>
     </div>
-  <!-- [(ngModel)]="product.imageUrl" -->
+
     <div class="mb-3">
       <label for="imageUrl" class="form-label">Image</label>
       <input
         type="file"
         id="imageUrl"
         class="form-control"
-   
         (change)="onFileSelected($event)"
         name="imageUrl"
         required
@@ -63,7 +82,7 @@
         <img [src]="imagePreview" alt="Image Preview" width="200" />
       </div>
     </div>
-    <!-- [disabled]="!productForm.valid" -->
-    <button type="submit" class="btn btn-primary" >Add Product</button>
+
+    <button type="submit" class="btn btn-primary">Add Product</button>
   </form>
 </div>

@@ -1,6 +1,172 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global Styles */
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
+html, body {
+  height: 100%;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  flex-direction: column;
+}
+main {
+    flex: 1;
+  }
+body, html {
+  height: 100%;
+  margin: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Main container for sidebar and content */
+#container {
+  display: flex;
+  height: 100%;
+}
+
+#sidebar.active {
+  margin-left: -250px;
+}
+
+#content {
+  width: 100%;
+  margin-top: 70px; /* Avoid overlap with navbar */
+  margin-left: 250px; /* Sidebar active width */
+  padding: 20px;
+  flex-grow: 1;
+  overflow-y: auto;
+  transition: margin-left 0.3s ease;
+}
+
+#content.full-width {
+  margin-left: 0; /* Sidebar inactive width */
+}
+/* Custom snackbar styles */
+.custom-snackbar {
+  background-color: #4CAF50;  /* Success color */
+  color: white;
+}
+
+.custom-snackbar .mat-simple-snackbar-action {
+  color: yellow;
+}
+
+#sidebar {
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 1000;
+  background-color: #79b2eb;
+  overflow-y: auto;
+  transition: all 0.3s;
+}
+
+#sidebar.active {
+  margin-left: -250px; /* Sidebar hidden */
+}
+
+#main-content {
+  transition: margin-left 0.3s;
+}
+
+#main-content.sidebar-active {
+  margin-left: 250px; /* Shift content when sidebar is active */
+}
+
+#main-content.full-width {
+  margin-left: 0;
+}
+
+
+
+/* Ensure product-list component takes up full width */
+.product-list {
+  width: 100%;
+}
+
+/* Navbar Styling */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Sidebar Styling */
+#sidebar {
+  width: 250px; /* Fixed width */
+  background-color: #f8f9fa; /* Light background */
+  position: fixed; /* Sidebar stays fixed while scrolling */
+  top: 0; /* Sidebar starts from the top of the page */
+  left: 0; /* Sidebar is aligned to the left of the page */
+  height: 100%; /* Sidebar takes the full height of the viewport */
+  overflow-y: auto; /* Add scrolling if sidebar content overflows */
+  z-index: 1000; /* Ensure the sidebar stays on top of other content */
+}
+
+.sidebar-header {
+  padding: 10px;
+  background: #466b91;
+  margin-top: 10px; /* Added margin to ensure the header is visible */
+}
+
+ul.list-unstyled {
+  padding-left: 0; /* Remove padding on the left */
+  margin-left: 0;  /* Remove margin on the left */
+  list-style: none; /* Ensure no bullets are shown */
+}
+
+ul.list-unstyled li {
+  padding: 10px 20px; /* Adjust padding to control spacing inside the list items */
+  border-bottom: 1px solid #ddd;
+}
+
+ul.list-unstyled li:last-child {
+  border-bottom: none;
+}
+
+ul.list-unstyled li a {
+  padding: 10px 0; /* Adjust padding to control spacing within the links */
+  display: flex;
+  align-items: center;
+  color: #333;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+}
+
+ul.list-unstyled li a span.material-icons {
+  margin-right: 15px; /* Space between the icon and text */
+  font-size: 20px;
+  color: #466b91;
+}
+
+ul.list-unstyled li a:hover {
+  background: #3e84cf;
+  color: #fff;
+}
+
+/* Menu Toggle Button */
+#menu-toggle {
+  margin-right: 10px;
+}
+
+/* Cart Count Styling */
+.cart-count {
+  background-color: rgb(45, 184, 45);
+  color: white;
+  border-radius: 50%; /* Ensure it's a circle */
+  padding: 1px 4px; /* Reduced padding for smaller size */
+  font-size: 10px; /* Reduced font size */
+  position: absolute;
+  top: 5px; /* Adjusted for smaller badge */
+  right: 5px; /* Adjusted for smaller badge */
+}

@@ -1,51 +1,25 @@
-#sidebar {
-  min-width: 250px;
-  max-width: 250px;
-  min-height: 100vh;
-  padding-top: 20px;
-  transition: all 0.3s;
+/* Navbar customization */
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 15px;
 }
 
-#sidebar.active {
-  margin-left: -250px;
+/* Ensure all icons in the navbar are the same size and aligned */
+.navbar-icon {
+    font-size: 24px;   /* Adjust to preferred size */
+    color: black;      /* Adjust the color */
+    vertical-align: middle; /* Ensures proper vertical alignment with text */
+    line-height: 1;    /* Ensures the icon is not cropped */
+    display: inline-flex; /* Allows proper vertical centering */
+    align-items: center;  /* Vertically centers the icon */
 }
 
-#content {
-  width: 100%;
-}
-
-.sidebar-header {
-  padding: 10px;
-  background: #466b91;
-}
-
-.list-unstyled {
-  padding: 0;
-}
-
-.list-unstyled li a {
-  padding: 10px;
-  display: block;
-  color: #333;
-  text-decoration: none;
-}
-
-.list-unstyled li a:hover {
-  background: #3e84cf;
-  color: #fff;
-}
-
-#menu-toggle {
-  margin-right: 10px;
-}
-
-.cart-count {
-  background-color: rgb(45, 184, 45);
-  color: white;
-  border-radius: 50%; /* Ensure it's a circle */
-  padding: 1px 4px; /* Reduced padding for smaller size */
-  font-size: 10px; /* Reduced font size */
-  position: absolute;
-  top: 5px; /* Adjusted for smaller badge */
-  right: 5px; /* Adjusted for smaller badge */
+/* Additional styles for the account button */
+.account-btn {
+    padding: 0;
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
 }

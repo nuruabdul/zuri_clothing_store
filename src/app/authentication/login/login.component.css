@@ -50,7 +50,19 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
-  
+  /* login.component.css */
+.custom-snackbar {
+  color: #fff;
+}
+
+.success-snackbar {
+  background-color: #4caf50; /* Green color for success */
+}
+
+.error-snackbar {
+  background-color: #f44336; /* Red color for error */
+}
+
   .login-container button:hover {
     background-color: #0056b3;
   }
@@ -76,6 +88,8 @@
   .login-container .links a:hover {
     color: #0056b3;
   }
+ 
+
   .card-body img {
     margin: 0 10px; /* Adjust spacing between images */
   }

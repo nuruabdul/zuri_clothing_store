@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  encapsulation: ViewEncapsulation.None 
 })
 export class LoginComponent {
   email: string = '';
@@ -20,7 +21,11 @@ export class LoginComponent {
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', Validators.required)
   })
-  constructor(private auth: AuthService, private router: Router, private fb: FormBuilder,) {
+  constructor(
+    private auth: AuthService,
+     private router: Router,
+      private fb: FormBuilder,
+      private snackBar:MatSnackBar) {
   }
   ngOnInit(): void {
     this.initializeForm();
@@ -40,28 +45,24 @@ export class LoginComponent {
 
     this.auth.login(userData).then((res: any) => {
       this.router.navigateByUrl('/products');
-      alert('Login Successful')
+      this.snackBar.open('Login Successful', 'Close', { 
+        duration: 3000,
+        panelClass: ['custom-snackbar']
+      });
+      
     }).catch((error: any) => {
       console.error(error);
-      alert(error.message);
+      this.snackBar.open(error.message, 'Close', { duration: 3000 });
     })
 
-    //   // if (this.loginForm.valid) {
-    //   //   const { email, password, rememberMe } = this.loginForm.value;
-
-
-    //   //   // Handle login logic here
-    //   // }
-    //   this.auth.login(this.email, this.password);
-    //   this.email = '';
-    //   this.password = '';
-    //   this.router.navigate(['/comp-dashboard']);
   }
   loginWithGoogle() {
     this.auth.signInWithGoogle().then((res: any) => {
-      this.router.navigateByUrl('dashboard');
+      this.router.navigateByUrl('products');
+      this.snackBar.open('Google SignIn Successful', 'Close', { duration: 3000 });
     }).catch((error: any) => {
       console.error(error);
+      this.snackBar.open('Google SignIn Failed. Try again later.', 'Close', { duration: 3000 });
     });
   }
 }

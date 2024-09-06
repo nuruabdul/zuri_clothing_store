@@ -1,7 +1,7 @@
 <div class="container mt-4" style="min-height: 100vh;">
   <div class="row mb-4">
     <div class="col-8">
-      <input type="text" class="form-control" placeholder="Search products..." [(ngModel)]="searchTerm" >
+      <input type="text" class="form-control" placeholder="Search products..." [(ngModel)]="searchTerm">
     </div>
     <div class="col-4">
       <button class="btn btn-primary w-100" (click)="searchProducts()">Search</button>
@@ -9,15 +9,29 @@
   </div>
 
   <div class="row">
-    <div class="col-md-4 mt-4" *ngFor="let product of products">
+    <div class="col-lg-4 col-md-6 col-sm-12 mt-4" *ngFor="let product of products">
       <div class="card mb-4">
         <img [src]="product.imageUrl" class="card-img-top" alt="{{ product.name }}">
         <div class="card-body">
           <h5 class="card-title" style="font-size: 1.4rem;">{{ product.name }}</h5>
           <p class="card-text" style="font-size: 1.0rem;">{{ product.description }}</p>
           <h6 style="font-size: 1.1rem;">{{ product.price | currency:'KES' }}</h6>
-          <button class="btn btn-success me-2">Buy</button>
-          <button class="btn btn-secondary" (click)="addToCart(product)">Add to Cart</button>
+          <h6 style="font-size: 1.1rem;">Available Items: {{ product.quantity }}</h6>
+          <h6   
+          [ngClass]="{'text-success': product.quantity > 0, 'text-danger': product.quantity === 0}" 
+          style="font-size: 1.1rem;"> Status:
+         {{ product.quantity > 0 ? 'Available' : 'Out of Stock' }} 
+        </h6>
+          <!-- Counter for Pieces Required -->
+         <!-- Pieces Counter -->
+         <div style="padding-bottom: 5px;" >
+          <button class="btn btn-outline-primary "  (click)="decreasePieces(product)">-</button>
+          <input
+           type="number"  [(ngModel)]="product.pieces"  min="1" [max]="product.quantity" *ngIf="product.quantity >= 1" [value]="product.pieces || 1" placeholder="1" (click)="updatePieces(product)">
+          <button class="btn btn-primary"  (click)="increasePieces(product)">+</button>
+        </div>
+          <button class="btn btn-success me-2" (click)="buyProduct(product)" [disabled]="product.quantity <= 0">Buy</button>
+          <button class="btn btn-secondary" (click)="addToCart(product)" [disabled]="product.quantity <= 0">Add to Cart</button>
         </div>
       </div>
     </div>

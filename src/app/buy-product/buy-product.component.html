@@ -1,0 +1,58 @@
+<div class="container mt-4">
+  <h2>Buy Product</h2>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <!-- Product Image -->
+        <div class="col-md-4">
+          <img [src]="selectedProduct?.imageUrl || 'assets/default-image.png'" alt="{{ selectedProduct?.name }}"
+            class="img-fluid">
+
+        </div>
+
+        <!-- Product Details and Form -->
+        <div class="col-md-8">
+          <h3>{{ selectedProduct?.name }}</h3>
+          <p>Price: {{ selectedProduct?.price | currency:'KES' }}</p>
+
+          <!-- Form for Buying Product -->
+          <form (ngSubmit)="submitOrder()">
+            <div class="form-group">
+              <label for="pieces">Number of Items:{{ pieces }}</label>
+              <input type="number" class="form-control" id="pieces" [(ngModel)]="pieces" name="pieces" min="1" max=""
+                (input)="updateTotalAmount()">
+              <div *ngIf="pieces > (selectedProduct?.quantity ?? 0)" class="text-danger mt-2">
+                The number of items exceeds the available quantity!
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="location">Delivery Location:</label>
+              <input type="text" class="form-control" id="location" [(ngModel)]="location" name="location" required>
+            </div>
+
+            <!-- Payment Options -->
+            <div class="form-group mt-3">
+              <label for="paymentMethod">Payment Method:</label>
+              <select class="form-control custom-select" id="paymentMethod" [(ngModel)]="paymentMethod"
+                name="paymentMethod" required>
+                <option value="" disabled>Select Payment Method</option>
+                <option value="mpesa">M-Pesa</option>
+                <option value="credit_card">Credit Card</option>
+              </select>
+            </div>
+
+
+            <!-- Display Total Amount -->
+            <div class="mt-4">
+              <h4>Total Amount: {{ totalAmount | currency:'KES' }}</h4>
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-3">Buy</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

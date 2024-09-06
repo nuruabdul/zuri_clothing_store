@@ -1,0 +1,49 @@
+<div class="container mt-5">
+    <h2>My Account</h2>
+  
+    <div class="row">
+      <!-- Personal Information -->
+      <div class="col-md-6">
+        <h4>Personal Information</h4>
+        <form (submit)="updateProfile()">
+          <div class="mb-3">
+            <label for="firstName" 
+            class="form-label">First Name</label>
+            <input type="text" class="form-control"
+             id="firstName" [(ngModel)]="user.displayName" 
+             name="firstName">
+          </div>
+          <div class="mb-3">
+            <label for="email" 
+            class="form-label">Email Address</label>
+            <input type="email"
+             class="form-control" 
+             id="email" 
+             [(ngModel)]="user.email"
+              name="email" disabled>
+          </div>
+          <button type="submit" class="btn btn-primary">Update Profile</button>
+        </form>
+      </div>
+  
+      <!-- Order History -->
+      <div class="col-md-6">
+        <h4>Order History</h4>
+        <ul class="list-group">
+          <li *ngFor="let order of userOrders$ | async" class="list-group-item">
+            <strong>Order #{{ order.orderId }}</strong>
+            <p>{{ order.orderDate | date }} - {{ order.totalAmount | currency:'KES' }}</p>
+            <p>Status: {{ order.status }}</p>
+            <button class="btn btn-link" routerLink="/order/{{ order.orderId }}">View Details</button>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+  
+    <!-- Option to log out -->
+    <div class="mt-4">
+      <button class="btn btn-danger" (click)="logout()">Logout</button>
+    </div>
+  </div>
+  

@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { Product, ProductService } from '../Services/product.service';
+import {  ProductService } from '../Services/product.service';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs/operators';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { Product } from '../models/product';
+// import { Product } from '../models/product';
 
 @Component({
   selector: 'app-add-product',
@@ -15,12 +17,25 @@ export class AddProductComponent {
     category: '',
     price: 0,
     description: '',
-    imageUrl: ''
+    imageUrl: '',
+    quantity: 0,
+    availableItems: 0,
+    id: ''
   };
+  categories: string[] = [
+    "Men's Clothing",
+    "Women's Clothing",
+    "Children's Clothing",
+    "Shoes & Accessories"
+  ];
   selectedFile: File | null = null;
   imagePreview: string | null = null;
 
-  constructor(private productService: ProductService, private storage: AngularFireStorage, private router: Router) {}
+  constructor(
+    private productService: ProductService, 
+    private storage: AngularFireStorage,
+     private router: Router,
+     ) {}
 
  
  onFileSelected(event: any) {
@@ -47,7 +62,10 @@ export class AddProductComponent {
   }
 }
 
-  
+onCategoryChange(event: any) {
+  this.product.category = event.target.value;
+  console.log('Selected category:', this.product.category);
+}
 
 onSubmit() {
   if (this.selectedFile ) {

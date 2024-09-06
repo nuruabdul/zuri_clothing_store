@@ -1,9 +1,19 @@
 <div class="d-flex">
   <!-- Sidebar -->
   <app-sidebar *ngIf="isLoggedIn"></app-sidebar>
-
+    <!-- Sidebar (Popular Products) -->
+    <!-- <div class="sidebar-section" *ngIf="popularProducts.length > 0">
+      <h5>Popular Products</h5>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let product of popularProducts">
+          <img [src]="product.imageUrl" alt="{{product.name}}" width="50" height="50">
+          <a routerLink="/product/{{product.id}}">{{ product.name }}</a>
+        </li>
+      </ul>
+    </div> -->
+  <!-- -->
   <!-- Page Content -->
-  <div id="content" class="p-4 flex-grow-1" style="padding-top: 0 !important;">
+  <div id="content"  class="p-4 flex-grow-1" style="padding-top: 0 !important;" [class.sidebar-active]="isSidebarActive" >
     <header style="margin-bottom: 0;">
       <nav class="navbar navbar-expand-lg" style="background-color: lightblue; margin-bottom: 0;">
         <div class="container-fluid" style="padding-left: 0; padding-right: 0;">
@@ -11,7 +21,9 @@
             <span class="material-icons">menu</span>
           </button>
           <a class="navbar-brand" style="font-weight: bold; color: black; margin-left: 10px;" routerLink="/">Zuri</a>
-          <button class="navbar-toggler" id="togglenavbar" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" (click)="togglenavbar()">
+          <button class="navbar-toggler" id="togglenavbar" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
+            (click)="togglenavbar()">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -35,25 +47,50 @@
                   <span class="material-icons">home</span>
                 </a>
               </li>
-             <!-- Navbar Component HTML -->
-<li class="nav-item">
-  <a class="nav-link position-relative" routerLink="/cart">
-    <span class="material-icons">shopping_cart</span>
-    <span class="cart-count">{{ cartItemCount }}</span>
-  </a>
-</li>
+              <!-- Navbar Component HTML -->
+              <li class="nav-item">
+                <a class="nav-link position-relative" routerLink="/cart">
+                  <span class="material-icons">shopping_cart</span>
+                  <span class="cart-count">{{ cartItemCount }}</span>
+                </a>
+              </li>
 
-              <li  class="circle-icon">
+              <li class="circle-icon">
                 <a class="nav-link" routerLink="/add-products">
                   <mat-icon style="font-size: 24px; color: black;">add_circle</mat-icon>
                   <!-- Help icon -->
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" routerLink="/view-ads">
-                  <mat-icon>account_circle</mat-icon> <!-- Account icon -->
-                </a>
+              <li class="circle-icon">
+             
+                  <mat-icon  style="padding-top: 18px;"
+                   [matMenuTriggerFor]="accountMenu"
+                    class="account-btn" >
+                    account_circle</mat-icon>
+                     {{ isLoggedIn ?  greeting : 'Account' }}
+             
               </li>
+              <mat-menu #accountMenu="matMenu">
+                <ng-container *ngIf="isLoggedIn; else notLoggedIn">
+                  <button mat-menu-item routerLink="/account">
+                    <mat-icon>person</mat-icon>
+                    <span>My Account</span>
+                  </button>
+             
+                  <button mat-menu-item (click)="logout()">
+                    <mat-icon>logout</mat-icon>
+                    <span>Logout</span>
+                  </button>
+                </ng-container>
+                <ng-template #notLoggedIn>
+                  <button mat-menu-item routerLink="/login">
+                    <mat-icon>login</mat-icon>
+                    <span>Sign In</span>
+                  </button>
+                </ng-template>
+              </mat-menu>
+          
+      
            
               <li class="nav-item">
                 <a class="nav-link" (click)="logout()">
@@ -62,10 +99,11 @@
               </li>
             </ul>
           </div>
-    
+
         </div>
       </nav>
       <router-outlet></router-outlet>
+
     </header>
   </div>
 </div>

@@ -1,52 +1,66 @@
 <nav id="sidebar" class="bg-light border-end" [class.active]="isSidebarActive">
   <div class="sidebar-header">
-    <h5 class="text-center" style="font-size: 16px; font-weight: bold;">Categories</h5>
+    <h5 class="text-center">Categories</h5>
   </div>
+
   <ul class="list-unstyled components">
+    <h2 class="text-center">Categories</h2>
     <li>
-      <a href="#" (click)="toggleMenClothing($event)" aria-expanded="false" class="dropdown-toggle">Men's Clothing</a>
-      <ul class="list-unstyled" [class.collapse]="!isMenClothingExpanded" id="menClothingSubmenu">
-        <li>
-          <a routerLink="/products">Shirts</a>
-        </li>
-        <li>
-          <a routerLink="/products">Trousers</a>
-        </li>
-        <li>
-          <a routerLink="/products">Jackets</a>
-        </li>
-      </ul>
+      <a href="#" (click)="toggleMenClothing($event)" aria-expanded="false">
+        <span class="material-icons">man</span> Men's Clothing
+      </a>
     </li>
     <li>
-      <a href="#" (click)="toggleWomenClothing($event)" aria-expanded="false" class="dropdown-toggle">Women's Clothing</a>
-      <ul class="list-unstyled" [class.collapse]="!isWomenClothingExpanded" id="womenClothingSubmenu">
-        <li>
-          <a routerLink="/products">Dresses</a>
-        </li>
-        <li>
-          <a routerLink="/products">Tops</a>
-        </li>
-        <li>
-          <a routerLink="/products">Skirts</a>
-        </li>
-      </ul>
+      <a href="#" (click)="toggleWomenClothing($event)" aria-expanded="false">
+        <span class="material-icons">woman</span> Women's Clothing
+      </a>
     </li>
     <li>
-      <a href="#" (click)="toggleKidsClothing($event)" aria-expanded="false" class="dropdown-toggle">Kids' Clothing</a>
+      <a href="#" (click)="toggleKidsClothing($event)" aria-expanded="false" class="dropdown-toggle">
+        <span class="material-icons">child_care</span> Kids' Clothing
+      </a>
       <ul class="list-unstyled" [class.collapse]="!isKidsClothingExpanded" id="kidsClothingSubmenu">
         <li>
-          <a routerLink="/products">Boys</a>
+          <a routerLink="/products"><span class="material-icons">boy</span> Boys</a>
         </li>
         <li>
-          <a routerLink="/products">Girls</a>
+          <a routerLink="/products"><span class="material-icons">girl</span> Girls</a>
         </li>
       </ul>
     </li>
     <li>
-      <a routerLink="/products">Accessories</a>
-    </li>
-    <li>
-      <a routerLink="/products">Shoes</a>
+      <a routerLink="/products"><span class="material-icons">watch</span> Shoes & Accessories</a>
     </li>
   </ul>
 </nav>
+
+
+   <!-- <ul class="list-unstyled" [class.collapse]="!isMenClothingExpanded" id="menClothingSubmenu">
+       <li>
+          <a routerLink="/products"><span class="material-icons">checkroom</span> Shirts</a>
+        </li>
+        <li>
+          <a routerLink="/products"><span class="material-icons">checkroom</span> Trousers</a>
+        </li>
+        <li>
+          <a routerLink="/products"><span class="material-icons">dry_cleaning</span> Jackets</a>
+        </li> -->
+      <!-- </ul> --> 
+    <!-- </li>
+    <li> -->
+      <!-- class="dropdown-toggle" -->
+      <!-- <a href="#" (click)="toggleWomenClothing($event)" aria-expanded="false" >
+        <span class="material-icons">woman</span> Women's Clothing
+      </a> -->
+      <!-- <ul class="list-unstyled" [class.collapse]="!isWomenClothingExpanded" id="womenClothingSubmenu">
+        <li>
+          <a routerLink="/products"><span class="material-icons">apparel</span> Dresses</a>
+        </li>
+        <li>
+          <a routerLink="/products"><span class="material-icons">blouse</span> Tops</a>
+        </li>
+        <li>
+          <a routerLink="/products"><span class="material-icons">skirt</span> Skirts</a>
+        </li>
+      </ul> -->
+    <!-- </li> -->

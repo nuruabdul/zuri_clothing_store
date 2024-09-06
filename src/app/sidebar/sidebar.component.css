@@ -1,11 +1,37 @@
+/* sidebar.component.css */
+
 #sidebar {
-    min-width: 250px;
-    max-width: 250px;
-    min-height: 100vh;
-    padding-top: 20px;
-    transition: all 0.3s;
-  }
-  
-  #sidebar.active {
-    margin-left: -250px;
-  }
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 1000;
+  transition: all 0.3s;
+  background: #f8f9fa;
+  overflow-y: auto;
+}
+
+
+
+.sidebar-header h5 {
+  margin: 0; /* Remove margin */
+  font-size: 18px; /* Adjust font size */
+  font-weight: bold; /* Ensure the font is bold */
+
+}
+
+ul.components {
+  padding: 0; /* Remove padding from ul */
+  margin-top: 20px; /* Adjust to add some space below the header */
+}
+
+ul.components li a {
+  padding: 10px 15px; /* Adjust padding for each item */
+  display: flex;
+  align-items: center;
+}
+
+ul.components li a span.material-icons {
+  margin-right: 10px; /* Add space between icon and text */
+}

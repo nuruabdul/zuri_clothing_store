@@ -1,30 +1,59 @@
+body {
+  background-color: #2d8692; /* Background color outside the container */
+  padding: 50px 50px; /* Space at the top and bottom */
+}
+
 .welcome-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-  }
-  
-  .img-fluid {
-    max-width: 100%;
-    height: auto;
-  }
-  
-  .text-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center; /* Center text content */
-  }
-  
-  .marquee-text {
-    margin: 0 auto; /* Center marquee horizontally */
-    width: 100%; /* Full width */
-  }
-  
-  marquee h2 {
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center; /* Ensure text is centered */
-  }
-  
+  padding: 0px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 auto; /* Center the container horizontally */
+  max-width: 1200px; /* Optional: Limit the container width */
+}
+
+.text-container h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.text-container .highlight {
+  color: #ff6f61; /* Highlight color */
+}
+
+.text-box {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.text-box a {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #ff6f61;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #e55c50;
+}
+
+.btn-secondary {
+  background-color: #466b91;
+  border: none;
+}
+
+.btn-secondary:hover {
+  background-color: #3a5674;
+}
+
